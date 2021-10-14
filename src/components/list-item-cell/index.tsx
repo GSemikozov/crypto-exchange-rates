@@ -17,7 +17,8 @@ export const RowCell = React.memo(
             const howMuchOneInAnother = Big(crypto1.p).div(Big(crypto2.p)); // was in usdt
             const ratio = howMuchOneInAnother
                 .minus(howMuchOneInAnotherPrev)
-                .div(howMuchOneInAnotherPrev);
+                .div(howMuchOneInAnotherPrev)
+                .times(100);
 
             return +ratio.toFixed(2);
         };
