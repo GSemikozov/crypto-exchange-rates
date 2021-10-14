@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 
-import { config } from "../constants";
+import { API_URL, PROXY } from "../constants";
 
 export const getData = async (period: string): Promise<AxiosResponse> =>
-    await axios.get(`${config.url.API_URL}`, {
+    await axios.get(`${PROXY}/${API_URL}`, {
         params: {
             currency: "USD",
             updates_from: "1629894793",

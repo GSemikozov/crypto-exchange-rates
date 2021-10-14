@@ -132,7 +132,7 @@ export const List = () => {
                     )}
                 </AutoSizer>
             </>
-            {fetchDataErrorMessage && (
+            {fetchDataErrorMessage && !isLoading && (
                 <div className={styles.errorMessage}>{fetchDataErrorMessage}</div>
             )}
         </div>

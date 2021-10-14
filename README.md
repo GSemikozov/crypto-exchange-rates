@@ -1,8 +1,8 @@
 # Crypto exchange rates app
 
-Application developed via cra + ts + jest + css-modules and intended to fetch and display current crypto change price ratio.
+Application developed via cra + ts + css-modules and intended to fetch and display current crypto change price ratio.
 
-Public link from [Netlify](https://opening-hours-calendar.netlify.app/).
+Public link from [Netlify](https://crypto-exchange-rates.netlify.app/).
 
 ## Get started
 - Install dependencies `yarn install`
@@ -27,10 +27,9 @@ enabled `format on save`, so you can enjoy local development process with auto-f
 Allows us to keep code clean and follow common standards of code writing in modern react + typescript
 
 ## api
-Locally API is available with `json-server` via endpoint called `data` and
-posted here: `localhost:3001/data`.
+Available with proxy under the hood to avoid cors problem.
 
-Publicly - it's just suggested endpoint `https://coin360.com/api/coins` [data](https://coin360.com/api/coins).
+Publicly - it's just suggested endpoint `https://coin360.com/api/coins` - [data](https://coin360.com/api/coins).
 
 ## Other tools in use
 - axios
