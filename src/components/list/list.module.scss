@@ -1,0 +1,28 @@
+.list {
+    height: 100%;
+}
+
+.listTopRow {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 2fr);
+    text-align: center;
+    align-items: center;
+    background: lightgray;
+    padding: 1rem 0;
+    height: var(--topBarHeight);
+    box-sizing: border-box;
+}
+
+.listItemOdd {
+    background-color: #fff;
+}
+
+.listItemEven {
+}
+
+.errorMessage {
+    height: calc(100% - var(--topBarHeight));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

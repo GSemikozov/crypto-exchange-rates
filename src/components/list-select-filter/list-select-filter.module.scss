@@ -1,0 +1,17 @@
+.select {
+    margin-left: 1rem;
+
+    &.isVisible {
+        display: block;
+    }
+
+    @media all and (max-width: 767px) {
+        position: fixed !important;
+        top: 60px;
+        left: 16px;
+        width: 120px;
+        z-index: 1;
+        margin-left: 0;
+        display: none;
+    }
+}
