@@ -74,12 +74,10 @@ export const List = () => {
 
     useEffect(() => {
         fetchData();
-        // const interval = setInterval(() => {
-        //     // eslint-disable-next-line no-console
-        //     console.log("gonne refetch!");
-        //     fetchData();
-        // }, 10000);
-        // return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            fetchData();
+        }, 10000);
+        return () => clearInterval(interval);
     }, [dateRangeParam, fetchData]);
 
     useEffect(() => {
