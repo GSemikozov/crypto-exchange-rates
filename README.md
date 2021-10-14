@@ -41,6 +41,7 @@ Publicly - it's just suggested endpoint `https://coin360.com/api/coins` - [data]
  - Improve algorithm / formula of ratio calculation
  - Improve types (make it much readable, generic, specific)
  - Improve error handling
+ - Improve variables names
 
 ## License
 

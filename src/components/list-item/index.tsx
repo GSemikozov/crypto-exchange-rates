@@ -10,10 +10,10 @@ export const ListItem = ({
     ethRate,
     usdtRate,
 }: {
-    dataItem: RespDataItem | undefined;
-    btcRate: RespDataItem | undefined;
-    ethRate: RespDataItem | undefined;
-    usdtRate: RespDataItem | undefined;
+    dataItem?: RespDataItem;
+    btcRate?: RespDataItem;
+    ethRate?: RespDataItem;
+    usdtRate?: RespDataItem;
 }) => (
     <div className={styles.listItem}>
         <div>{dataItem ? dataItem.s : "-"}</div>

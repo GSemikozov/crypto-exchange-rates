@@ -2,7 +2,6 @@ import React from "react";
 import Select, { ActionMeta, SingleValue } from "react-select";
 import cx from "classnames";
 
-// import { SelectOptionType } from "../../types";
 import { selectOptions } from "../list";
 
 import styles from "./list-select-filter.module.scss";

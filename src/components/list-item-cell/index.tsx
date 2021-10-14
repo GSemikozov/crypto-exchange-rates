@@ -3,12 +3,8 @@ import Big from "big.js";
 
 import { RespDataItem } from "../../types";
 
-// const getPercentOfTotal = (share: BigSource, total: BigSource) =>
-//     Number(Big(share).div(total).times(100));
-
 export const RowCell = React.memo(
     ({ dataItem, relatedItem }: { dataItem: RespDataItem; relatedItem: RespDataItem }) => {
-        // const getPrevCryptoPrice = (crypto: RespDataItem) => crypto.p * (1 - crypto.ch / 100);
         const getPrevCryptoPrice = (crypto: RespDataItem) => {
             const cryptoPrice = Big(crypto.p);
             const cryptoCh = Big(crypto.ch);
@@ -22,9 +18,7 @@ export const RowCell = React.memo(
             const ratio = howMuchOneInAnother
                 .minus(howMuchOneInAnotherPrev)
                 .div(howMuchOneInAnotherPrev);
-            // @ts-ignore
-            // eslint-disable-next-line no-console
-            console.log("ratio: ", `${+ratio.toFixed(2)}`);
+
             return +ratio.toFixed(2);
         };
 

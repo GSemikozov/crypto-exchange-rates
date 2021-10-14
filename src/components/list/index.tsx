@@ -6,12 +6,14 @@ import { Options, SingleValue } from "react-select";
 import { getData } from "../../api";
 
 import { dataWithPrices } from "../../helpers";
+
 import { BaseCryptoEnum, DataResponse, RespDataItem } from "../../types";
+
 import { ListItem } from "../list-item";
 import { Loader } from "../loader";
+import { ListFilterCol } from "../list-filter-col";
 
 import styles from "./list.module.scss";
-import { ListFilterCol } from "../list-filter-col";
 
 export const selectOptions: Options<any> = [
     { value: "1h", label: "1h" },
@@ -35,26 +37,20 @@ export const List = () => {
 
     const fetchData = useCallback(() => {
         toggleLoading();
-        // eslint-disable-next-line no-console
-        console.log("gonna pass in fetchData", dateRangeParam);
-        setTimeout(() => {
-            getData(dateRangeParam.value)
-                .then((resp) => {
-                    const data = dataWithPrices(resp.data.data);
-                    setLoadedData(data);
-                    toggleLoading();
-                })
-                .catch((error) => {
-                    new Error(error);
-                    setFetchDataErrorMessage(error.message);
-                    toggleLoading();
-                });
-        }, 3000);
+        getData(dateRangeParam.value)
+            .then((resp) => {
+                const data = dataWithPrices(resp.data.data);
+                setLoadedData(data);
+                toggleLoading();
+            })
+            .catch((error) => {
+                new Error(error);
+                setFetchDataErrorMessage(error.message);
+                toggleLoading();
+            });
     }, [dateRangeParam]);
 
     const handleChangeRangeParam = (option: SingleValue<string>) => {
-        // eslint-disable-next-line no-console
-        console.log("OPTION: ", option);
         setDateRangeParam(option);
     };
 
@@ -87,19 +83,9 @@ export const List = () => {
     }, [dateRangeParam, fetchData]);
 
     useEffect(() => {
-        // eslint-disable-next-line no-console
-        console.log("isLoading", isLoading);
-    }, [isLoading]);
-
-    useEffect(() => {
-        // eslint-disable-next-line no-console
-        console.log("data", data);
         const usdtRateObj = data && getCryptoRateObjByType(data, BaseCryptoEnum.usdt);
         const btcRateObj = data && getCryptoRateObjByType(data, BaseCryptoEnum.btc);
         const ethRateObj = data && getCryptoRateObjByType(data, BaseCryptoEnum.eth);
-
-        // eslint-disable-next-line no-console
-        console.log("set cryptos: ", usdtRate, btcRate, ethRate);
 
         usdtRateObj && setUSDTRate(usdtRateObj);
         btcRateObj && setBTCRate(btcRateObj);
