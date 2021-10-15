@@ -35,20 +35,23 @@ export const List = () => {
         setIsLoading((prev) => !prev);
     };
 
-    const fetchData = useCallback(() => {
-        toggleLoading();
-        getData(dateRangeParam.value)
-            .then((resp) => {
-                const data = dataWithPrices(resp.data.data);
-                setLoadedData(data);
-                toggleLoading();
-            })
-            .catch((error) => {
-                new Error(error);
-                setFetchDataErrorMessage(error.message);
-                toggleLoading();
-            });
-    }, [dateRangeParam]);
+    const fetchData = useCallback(
+        (hasLoading: boolean) => {
+            hasLoading && toggleLoading();
+            getData(dateRangeParam.value)
+                .then((resp) => {
+                    const data = dataWithPrices(resp.data.data);
+                    setLoadedData(data);
+                    hasLoading && toggleLoading();
+                })
+                .catch((error) => {
+                    new Error(error);
+                    setFetchDataErrorMessage(error.message);
+                    hasLoading && toggleLoading();
+                });
+        },
+        [dateRangeParam],
+    );
 
     const handleChangeRangeParam = (option: SingleValue<string>) => {
         setDateRangeParam(option);
@@ -73,11 +76,11 @@ export const List = () => {
     };
 
     useEffect(() => {
-        fetchData();
-        const interval = setInterval(() => {
-            fetchData();
-        }, 10000);
-        return () => clearInterval(interval);
+        fetchData(true);
+        // const interval = setInterval(() => {
+        //     fetchData(false);
+        // }, 10000);
+        // return () => clearInterval(interval);
     }, [dateRangeParam, fetchData]);
 
     useEffect(() => {

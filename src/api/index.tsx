@@ -10,4 +10,7 @@ export const getData = async (period: string): Promise<AxiosResponse> =>
             period: period,
             no_charts: "true",
         },
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        },
     });

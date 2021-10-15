@@ -14,8 +14,9 @@ export const RowCell = React.memo(
             const prevPriceCrypto1 = getPrevCryptoPrice(crypto1);
             const prevPriceCrypto2 = getPrevCryptoPrice(crypto2);
             const howMuchOneInAnotherPrev = prevPriceCrypto1.div(prevPriceCrypto2); // was in usdt
-            const howMuchOneInAnother = Big(crypto1.p).div(Big(crypto2.p)); // was in usdt
-            const ratio = howMuchOneInAnother
+            const howMuchOneInAnotherCur = Big(crypto1.p).div(Big(crypto2.p)); // is in usdt
+            // get percentage between two crypto's
+            const ratio = howMuchOneInAnotherCur
                 .minus(howMuchOneInAnotherPrev)
                 .div(howMuchOneInAnotherPrev)
                 .times(100);
@@ -24,7 +25,7 @@ export const RowCell = React.memo(
         };
 
         const ratio = getCryptoRatio(dataItem, relatedItem);
-        const isZero = Math.sign(ratio) === 0;
+        const isRatioZero = Math.sign(ratio) === 0;
 
         const highlightStyle = () => {
             switch (Math.sign(ratio)) {
@@ -40,7 +41,7 @@ export const RowCell = React.memo(
 
         return (
             <div style={{ color: highlightStyle() }}>
-                {dataItem.s !== relatedItem.s ? `${ratio}${!isZero ? "%" : ""}` : "-"}
+                {dataItem.s !== relatedItem.s ? `${ratio}${!isRatioZero ? "%" : ""}` : "-"}
             </div>
         );
     },
