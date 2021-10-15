@@ -77,10 +77,10 @@ export const List = () => {
 
     useEffect(() => {
         fetchData(true);
-        // const interval = setInterval(() => {
-        //     fetchData(false);
-        // }, 10000);
-        // return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            fetchData(false);
+        }, 10000);
+        return () => clearInterval(interval);
     }, [dateRangeParam, fetchData]);
 
     useEffect(() => {
