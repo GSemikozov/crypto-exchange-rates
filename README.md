@@ -31,6 +31,8 @@ Available with proxy under the hood to avoid cors problem.
 
 Publicly - it's just suggested endpoint `https://coin360.com/api/coins` - [data](https://coin360.com/api/coins).
 
+NB! you have to run proxy here [cors-anywhere](https://cors-anywhere.herokuapp.com/corsdemo), otherwise it won't work.
+
 ## Other tools in use
 - axios
 - husky
