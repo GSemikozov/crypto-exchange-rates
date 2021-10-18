@@ -44,6 +44,7 @@ NB! you have to run proxy here [cors-anywhere](https://cors-anywhere.herokuapp.c
  - Improve types (make it much readable, generic, specific)
  - Improve error handling
  - Improve variables names
+ - replace tempo proxy via netlify redirects like described here: [article](https://blog.jim-nielsen.com/2020/a-cors-proxy-with-netlify/)
 
 ## License
 
